@@ -1,0 +1,8 @@
+COMPONENT:       AL                  
+STATE:           S                   
+DENSITY:         2700  0  0  0       
+HEAT CAPACITY:   910  0  0  0        
+CONDUCTIVITY:    237  0  0  0        
+TRANSPORT:       1e-30  0  0  0      
+EMISSIVITY & ABSORPTION:  0.95  10000
+                                     

@@ -1,0 +1,63 @@
+OBJECT BOUNDARIES            
+*****************            
+                             
+TOP BOUNDARY                 
+                             
+MASS TRANSPORT:  YES         
+ABS_g  EXP  0  0             
+ABS_g  EXP  0  0             
+ABS_g  EXP  0  0             
+ABS_g  EXP  0  0             
+                             
+OUTSIDE TEMP TIME PROG:  2   
+CONVECTION COEFF:  3         
+                             
+EXTERNAL RADIATION:  YES     
+TIME PROG1:  1  0  0         
+TIME PROG2:  0  0  0         
+REPEAT:  YES                 
+ABSORPTION MODE:  RAND       
+                             
+FLAME:  YES                  
+IGNITION MASS FLUXES:        
+ABS_g  0                     
+ABS_g  0                     
+ABS_g  0                     
+                             
+OUTSIDE TEMP:  0             
+CONVECTION COEFF:  0         
+                             
+BOTTOM BOUNDARY              
+                             
+MASS TRANSPORT:  YES         
+ABS_g  EXP  5  6             
+ABS_g  EXP  0  0             
+ABS_g  EXP  0  0             
+                             
+OUTSIDE TEMP TIME PROG:  6  7
+CONVECTION COEFF:  5         
+                             
+EXTERNAL RADIATION:  YES     
+TIME PROG1:  8  9  10        
+TIME PROG2:  11  12  13      
+REPEAT:  YES                 
+ABSORPTION MODE:  RAND       
+                             
+FLAME:  YES                  
+IGNITION MASS FLUXES:        
+ABS_g  0                     
+ABS_g  0                     
+                             
+OUTSIDE TEMP:  15            
+CONVECTION COEFF:  4         
+RADIATION:  98               
+                             
+INTEGRATION PARAMETERS       
+**********************       
+                             
+ELEMENT SIZE:  5e-5          
+TIME STEP:  0.01             
+DURATION:  600               
+OUTPUT FREQUENCY:            
+ELEMENTS:  20                
+TIME STEPS:  100             
