@@ -7,7 +7,7 @@ function varargout = Layers_1D(varargin)
 %      the existing singleton*.
 %
 %      LAYERS_1D('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in LAYERS_1D.M with the given input arguments.
+%      function named CALLBACK in LAYopoeERS_1D.M with the given input arguments.
 %
 %      LAYERS_1D('Property','Value',...) creates a new LAYERS_1D or raises the
 %      existing singleton*.  Starting from the left, property value pairs are

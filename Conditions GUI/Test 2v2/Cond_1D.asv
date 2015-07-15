@@ -1966,6 +1966,7 @@ end
 Lcounter.String = str2double(Lcounter.String)+1;
 
 disp(sprintf('Layer %s',Lcounter.String));
+
 %% create new layer
 h = uipanel('Parent',L,'Tag',sprintf('oslayer_%s',Lcounter.String),...
     'Units','pixels','Position',[5 35 210 120],...
@@ -2012,7 +2013,7 @@ addmf = uicontrol('Parent',h,'Style','pushbutton','Units','pixels',...
     'Tag',sprintf('add_mf_%s',Lcounter.String),'Callback',@add_mf_X_Callback);
 
 remmf = uicontrol('Parent',h,'Style','pushbutton','Units','pixels',...
-    'String','-','Position',[182 7 20 24],'Callback',@rem_mf_X_Callback,...
+    'String','-','Position',[182 7 20 24],...
     'Tag',sprintf('rem_mf_%s',Lcounter.String),'Visible','Off'); %Turn visibility when more than 2 MF
 %% Positioning
 if gt(str2double(Lcounter.String),1)
@@ -2207,7 +2208,7 @@ if eq(str2double(countMF.String),1)
     remmf.Visible = 'Off';
 end
 %% deleting mass fraction entry
-delete(massfrac1);
+delete(massfrac1)
 delete(massfrac2);
 disp(sprintf('Layer %s Mass Fraction Count is %s',Lcounter.String,countMF.String));
 %% Positioning
@@ -2230,11 +2231,6 @@ massfrac2 = findobj('Tag',sprintf('mass_frac2_%s_%d',Lcounter.String,j));
 massfrac1 = findobj('Tag',sprintf('mass_frac1_%s_%d',Lcounter.String,j));
 massfrac1.Position = massfrac1.Position - [0 a 0 0];
 massfrac2.Position = massfrac2.Position - [0 a 0 0];
-end
-
-for j = 1:(str2double(Lcounter.String)-1)
-    h = findobj('Tag',sprintf('oslayer_%d',j));
-    h.Position = h.Position - [0 a 0 0];
 end
 %% scrolling adjustments
 L.Units = 'normalized';
