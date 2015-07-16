@@ -2192,17 +2192,21 @@ end
 
 if idx == str2double(Lcounter.String)
     idx = idx-1;
-    h.Position = h.Position + [0 0 0 a];
     for j = 1:idx
         h = findobj('Tag',sprintf('oslayer_%d',j));
         h.Position = h.Position + [0 a 0 0];
     end
 elseif lt(idx,str2double(Lcounter.String))
-    h.Position = h.Position + [0 -a 0 a];
     for j = 1:idx
         h = findobj('Tag',sprintf('oslayer_%d',j));
         h.Position = h.Position + [0 a 0 0];
     end
+end
+
+if idx == str2double(Lcounter.String)
+    h.Position = h.Position + [0 0 0 a];
+elseif lt(idx,str2double(Lcounter.String))
+    h.Position = h.Position + [0 -a 0 a];
 end
 
 %% scrolling adjustments
@@ -2257,6 +2261,12 @@ a = 26.5;
 % OST.Position = OST.Position - [0 a 0 0]; 
 L.Position = L.Position - [0 0 0 a];
 
+if idx == str2double(Lcounter.String)
+    h.Position = h.Position - [0 0 0 a];
+elseif lt(idx,str2double(Lcounter.String))
+    h.Position = h.Position - [0 -a 0 a];
+end
+
 % addlayer.Position = addlayer.Position - [0 a 0 0];
 % remlayer.Position = remlayer.Position - [0 a 0 0];
 massfract.Position = massfract.Position - [0 a 0 0];
@@ -2272,19 +2282,9 @@ massfrac1.Position = massfrac1.Position - [0 a 0 0];
 massfrac2.Position = massfrac2.Position - [0 a 0 0];
 end
 
-if idx == str2double(Lcounter.String)
-    idx = idx-1;
-    h.Position = h.Position - [0 0 0 a];
-    for j = 1:idx
-        h = findobj('Tag',sprintf('oslayer_%d',j));
-        h.Position = h.Position - [0 a 0 0];
-    end
-elseif lt(idx,str2double(Lcounter.String))
-    h.Position = h.Position - [0 -a 0 a];
-    for j = 1:idx
-        h = findobj('Tag',sprintf('oslayer_%d',j));
-        h.Position = h.Position - [0 a 0 0];
-    end
+for j = 1:(str2double(Lcounter.String)-1)
+    h = findobj('Tag',sprintf('oslayer_%d',j));
+    h.Position = h.Position - [0 a 0 0];
 end
 %% scrolling adjustments
 L.Units = 'normalized';
