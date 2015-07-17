@@ -102,6 +102,7 @@ function varargout = Cond_1D_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 function create_cnd_Callback(hObject, eventdata, handles)
+%% Object Structure
 
 %% bottom
 %popup selections
@@ -225,7 +226,6 @@ end
 %added popup selections
 
 %FIX FIX
-
 %% OB
 
 obj_bound{1,1} = 'OBJECT BOUNDARIES';
