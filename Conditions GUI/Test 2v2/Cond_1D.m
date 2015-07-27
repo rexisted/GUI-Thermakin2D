@@ -103,6 +103,44 @@ varargout{1} = handles.output;
 
 function create_cnd_Callback(hObject, eventdata, handles)
 %% Object Structure
+obj_struct{1,1} = 'OBJECT STRUCTURE';
+obj_struct{2,1} = '****************';
+obj_struct{3,1} = 'FROM TOP';
+
+Lcounter = findobj('Tag','Lcounter');
+for i = 1:str2double(Lcounter.String)
+    countMF = findobj('Tag',sprintf('countMF_%d',i));
+    countMF_all(i)= str2double(countMF.String);
+end
+
+for j = 1:str2double(Lcounter.String)
+    
+    if j ~= 1
+        bc = sum(countMF_all(1:j-1));
+    else
+        bc = 0;
+    end
+    
+    ac = 3 + 4*(j-1) + bc;
+    
+    temp = findobj('Tag',sprintf('temp_%d',j));
+    thick = findobj('Tag',sprintf('thick_%d',j));
+
+    obj_struct{ac+1,1} = sprintf('THICKNESS:  %s',thick.String);
+    obj_struct{ac+2,1} = sprintf('TEMPERATURE:  %s',temp.String);
+    obj_struct{ac+3,1} = 'MASS FRACTIONS:';
+
+    for jj = 1:countMF_all(j);
+    massfrac2 = findobj('Tag',sprintf('mass_frac2_%d_%d',j,jj));
+    massfrac1 = findobj('Tag',sprintf('mass_frac1_%d_%d',j,jj));
+    masf1 = massfrac1.String{massfrac1.Value};
+    masf2 = str2double(massfrac2.String);
+
+    obj_struct{ac+3+jj,1} = sprintf('%s  %d',masf1,masf2);
+    end
+    obj_struct{ac+4+jj,1} = ' ';
+
+end
 
 %% bottom
 %popup selections
@@ -440,7 +478,7 @@ INT_PARA{9,1} = sprintf('TIME STEPS:  %s',time2);
 
 % O = obj_bound{:,1};
 % O(all(O == ' ', 2),:) = [];
-F = char(obj_bound{:,1},INT_PARA{:,1});
+F = char(obj_struct{:,1},obj_bound{:,1},INT_PARA{:,1});
 
 [FileName,PathName] = uiputfile('*.cnd','Save as');
 if isequal(FileName,0) %if no file is chosen or canceled then display Cancel
@@ -1896,8 +1934,8 @@ set(handles.uipanelt,'Units','pixels');
 %% =================================OBJECT STRUCTURE===============================================================================
 
 function OB_structpush_Callback(hObject, eventdata, handles)
-
-
+% F=findobj('Tag','OBStructFig');
+% if exist F==false
 %Create Object Structure Figure
 F = figure('Visible','on','Position',[680,280,270,170],'Resize','Off',...
     'MenuBar','none','Name','Object Structure','tag','OBStructFig');
@@ -1928,9 +1966,9 @@ remlayer = uicontrol('Parent',L,'Style','pushbutton','String','-',...
     'FontSize',20,'FontWeight','bold','Visible','Off','Callback',@remove_layer_Callback);
 
 %Creates create Object structure button
-createos = uicontrol('Parent',L,'Style','pushbutton','String','Create Layers',...
+createos = uicontrol('Parent',L,'Style','pushbutton','String','Create Object',...
     'Units','pixels','Position',[55 5 150 30],'Tag','create_os',...
-    'FontSize',10,'Visible','Off');
+    'FontSize',10,'Visible','Off','Callback',@layer_create_Callback);
 
 %Create scrollbar for moving content in figure
 vscrollos = uicontrol('Parent',F,'Style','slider','Callback',@v_scrollos_Callback,...
@@ -1943,6 +1981,9 @@ addlistener(vscrollos,'Value','PreSet',... % allows scroll to update immediately
 uicontrol('Style','text','String','0','Tag','Lcounter','Visible','Off');
 %Holds ID of active layer
 uicontrol('Style','text','String','0','Tag','CurentLay','Visible','Off');
+% elseif exist F==true
+%     F.Visible = 'On';
+% end
 
 function add_layer_Callback(hObject, eventdata, handles)
 %% For Referencing
@@ -2122,6 +2163,8 @@ L.Units = 'pixels';
 function Thick_X_Callback(hObject, eventdata, handles)
 function Temp_X_Callback(hObject, eventdata, handles)
 function layer_create_Callback(hObject, eventdata, handles)
+F = findobj('Tag','OBStructFig');
+F.Visible = 'Off';
 
 function add_mf_X_Callback(src, ~)
 %% Identifying button before excuting
@@ -2306,4 +2349,6 @@ L.Units = 'pixels';
 % --- Executes when user attempts to close main window
 function figure1_CloseRequestFcn(hObject, eventdata, handles)
 delete(hObject);
+% add if statement so that main window doesn't close without closing other
+% minor windows
 delete(findobj('Tag','OBStructFig'));
