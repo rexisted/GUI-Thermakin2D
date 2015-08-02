@@ -1,0 +1,42 @@
+This is an example of text input describing 1-dimensional object exposed to external heat and/or mass fluxes. The OneD_model::load function expects this format.
+
+OBJECT STRUCTURE
+****************
+
+THICKNESS:    0.005
+TEMPERATURE:  300.0
+MASS FRACTIONS:
+COMP1  1.00
+COMP2  0.00
+
+THICKNESS:    0.005
+TEMPERATURE:  300.0
+MASS FRACTIONS:
+COMP1  0.00
+COMP2  1.00
+
+OBJECT BOUNDARIES
+*****************
+
+TOP BOUNDARY
+
+.................
+.................
+
+BOTTOM BOUNDARY
+
+.................
+.................
+
+INTEGRATION PARAMETERS
+**********************
+
+ELEMENT SIZE:  0.0001
+TIME STEP:     0.005
+DURATION:      300.0
+
+OUTPUT FREQUENCY:
+ELEMENTS:    10
+TIME STEPS:  200
+
+Thicknesses and temperatures of object layers must be positive. Component mass fractions must be non-negative. Their sum for any given layer must be positive. All integration parameters must be positive. Output frequencies must be integers.

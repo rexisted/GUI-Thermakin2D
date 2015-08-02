@@ -1,0 +1,19 @@
+This is a text input describing physical properties of components of material. The Props::load function expects this format.
+
+COMPONENT:      NAME0
+STATE:          S
+DENSITY:        0.0  1.0  1.0  1.0
+HEAT CAPACITY:  0.0  1.0  1.0  1.0
+CONDUCTIVITY:   0.0  1.0  1.0  1.0
+TRANSPORT:      0.0  1.0  1.0  1.0
+EMISSIVITY & ABSORPTION:  1.0  1.0
+
+COMPONENT:      NAME1
+STATE:          G
+DENSITY:        1.0  0    0    0
+HEAT CAPACITY:  1.0  0    0    0
+CONDUCTIVITY:   1.0  0    0    0
+TRANSPORT:      1.0  0    0    0
+EMISSIVITY & ABSORPTION:  0    0
+
+Component densities, heat capacities, and thermal conductivities must always be positive (higher than zero). Gas transport coefficients can be either positive for all components or negative for all components (they cannot be equal to zero). Emissivity is expected to be between 0 and 1 (including 0 and 1). Absorption coefficient should be non-negative.

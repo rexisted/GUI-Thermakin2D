@@ -1,0 +1,56 @@
+This is an example of text input describing 2-dimensional object exposed to external heat and/or mass fluxes. The TwoD_model::load function expects this format.
+
+OBJECT STRUCTURE
+****************
+
+FROM BOTTOM:
+
+LAYER LENGTH: 0.02
+FROM FRONT:
+THICKNESS:  0.005
+TEMPERATURE:  300
+MASS FRACTIONS:
+PMMA_S  1
+THICKNESS:  0.005
+TEMPERATURE:  300
+MASS FRACTIONS:
+KAOWOOL  1
+
+LAYER LENGTH: 0.03
+FROM FRONT:
+THICKNESS:  0.003
+TEMPERATURE:  300
+MASS FRACTIONS:
+PMMA_S  1
+THICKNESS:  0.007
+TEMPERATURE:  300
+MASS FRACTIONS:
+KAOWOOL  1
+
+OBJECT BOUNDARIES
+*****************
+
+FRONT BOUNDARY
+
+.................
+.................
+
+BACK BOUNDARY
+
+.................
+.................
+
+INTEGRATION PARAMETERS
+**********************
+
+LAYER SIZE:  1e-2
+ELEMENT SIZE:  1e-4
+TIME STEP:  0.01
+DURATION:  200
+
+OUTPUT FREQUENCY:
+LAYERS:  1
+ELEMENTS:  5
+TIME STEPS:  100
+
+Lengths, thicknesses and temperatures of object layers must be positive. Component mass fractions must be non-negative. Their sum for any given thickness must be positive. All integration parameters must be positive. Output frequencies must be integers.

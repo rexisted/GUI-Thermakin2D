@@ -1,7 +1,7 @@
 function varargout = ThermaGUI(varargin)
-% THERMAGUI MATLAB code for ThermaGUI.fig
-%      THERMAGUI, by itself, creates a new THERMAGUI or raises the existing
+% THERMAGUI MATLAB code for ThermaGUI.figMAGUI or raises the existing
 %      singleton*.
+%      THERMAGUI, by itself, creates a new THER
 %
 %      H = THERMAGUI returns the handle to a new THERMAGUI or the handle to
 %      the existing singleton*.

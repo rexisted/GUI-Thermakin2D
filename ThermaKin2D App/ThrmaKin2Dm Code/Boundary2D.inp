@@ -1,0 +1,37 @@
+This is an example of text input describing 2-dimensional object boundary conditions. The Bound2D::load function expects this format.
+
+MASS TRANSPORT:  YES
+PMMA_G  LIN  0.05  0
+
+EXTERNAL HEAT FLUX 1:  YES
+START & END TIMES:  0  70
+RAMP:  HOLD
+MODE:  CONV
+CONVECTION COEFF:  20
+POSITION DEPEND1:  0  0  0.01
+POSITION DEPEND2:  1.5e3  5e4  0.03
+POSITION DEPEND3:  3e3  0  0.04
+
+EXTERNAL HEAT FLUX 2:  YES
+START & END TIMES:  80  200
+RAMP:  DOWN
+MODE:  RAD
+POSITION DEPEND1:  0  0  0.01
+POSITION DEPEND2:  1.5e4  5e5  0.03
+POSITION DEPEND3:  3e4  0  0.04
+
+EXTERNAL HEAT FLUX 3:  NO
+
+FLAME:  YES
+IGNITION MASS FLUXES:
+PMMA_G  4e-4
+FLAME LENGTH:  0.03  0.04  1
+HEAT FLUX MODE:  RAD
+HEAT FLUX INSIDE:  4.0e4  0.05  3.5e4
+HEAT FLUX BELOW:  1e5
+HEAT FLUX ABOVE:  1.65  0.50  0.033
+
+BACKGROUND TEMP:  300
+RADIAT ABSORPT MODE:  MAX
+
+Times and positions must always be non-negative. Ignition mass fluxes and convection coefficients must not be equal to zero. Heat flux ramp should be UP, DOWN or HOLD. Heat flux mode should be CONV or RAD. Absorption mode should be MAX or RAND.

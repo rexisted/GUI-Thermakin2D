@@ -316,7 +316,7 @@ if te == 1;
     obj_bound{x+8,1} = sprintf('REPEAT:  %s',top_repeat);
     obj_bound{x+9,1} = sprintf('ABSORPTION MODE:  %s',top_absorpmode);
 elseif te == 2;
-    obj_bound{x+6,1} = '';
+    obj_bound{x+6,1} = '';c
     obj_bound{x+7,1} = '';
     obj_bound{x+8,1} = '';
     obj_bound{x+9,1} = '';
