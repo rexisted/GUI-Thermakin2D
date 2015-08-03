@@ -76,29 +76,46 @@ varargout{1} = handles.output;
 
 
 function cond_button_Callback(hObject, eventdata, handles)
-global cond_fig_limit
-if cond_fig_limit == 0
-F = figure('Position',[200,200,900,575],'Resize','Off',...
-    'MenuBar','none','Name','Conditions','tag','cond_fig');
-elseif cond_fig_limit == 1
-F = findobj('Tag','cond_fig');
-F.Visible = 'On';
+global cond_fig_limit %Introduces limit which limits window to open once
+if cond_fig_limit == 0 %If its not opened
+cond_figure = figure('Position',[200,200,900,575],'Resize','Off',... %Creates Conditions figure sets it to cond_figure
+    'MenuBar','none','Name','Conditions','tag','cond_fig',...
+    'CloseRequestFcn',@closereq);
+cond_fig_limit = 1; %sets limit to 1 which stops creation of figure
+elseif cond_fig_limit == 1 %If it is opened
+cond_figure = findobj('Tag','cond_fig'); %set figure 'cond_fig' to cond_figure
+cond_figure.Visible = 'On'; %makes figure visible
+drawnow;
 end
-cond_fig_limit = 1;
+
 
 function comp_button_Callback(hObject, eventdata, handles)
-global comp_fig_limit
-if comp_fig_limit == 0
-F = figure('Position',[520,460,440,300],'Resize','Off',...
+global comp_fig_limit %Introduces limit which limits window to open once
+if comp_fig_limit == 0 %If its not opened
+comp_figure = figure('Position',[520,460,440,300],'Resize','Off',... %Creates Components figure sets it to cond_figure
     'MenuBar','none','Name','Components','tag','comp_fig',...
     'CloseRequestFcn',@closereq);
-elseif comp_fig_limit == 1
-    F = findobj('Tag','comp_fig');
-    F.Visible = 'On';
+comp_fig_limit = 1; %sets limit to 1 which stops creation of figure
+elseif comp_fig_limit == 1 %If it is opened
+    comp_figure = findobj('Tag','comp_fig'); %set figure 'comp_fig' to comp_figure
+    comp_figure.Visible = 'On'; %makes figure visible
+    drawnow;
 end
-comp_fig_limit = 1;
+
 
 function out_button_Callback(hObject, eventdata, handles)
+global out_fig_limit %Introduces limit which limits window to open once
+if out_fig_limit == 0 %If its not opened
+out_figure = figure('Position',[520,460,440,300],'Resize','Off',... %Creates Output figure sets it to cond_figure
+    'MenuBar','none','Name','Output','tag','out_fig',...
+    'CloseRequestFcn',@closereq);
+out_fig_limit = 1; %sets limit to 1 which stops creation of figure
+elseif out_fig_limit == 1 %If it is opened
+    out_figure = findobj('Tag','comp_fig'); %set figure 'out_fig' to out_figure
+    out_figure.Visible = 'On'; %makes figure visible
+    drawnow;
+end
+
 
 function tk2d_button_Callback(hObject, eventdata, handles)
 

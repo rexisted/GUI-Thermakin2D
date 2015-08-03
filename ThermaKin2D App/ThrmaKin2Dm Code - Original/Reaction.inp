@@ -1,0 +1,14 @@
+This is a text input describing parameters of reactions. The 
+React::load function expects this format.
+
+REACTION:       COMP0 + COMP1 -> COMP2 + COMP3
+STOICHIOMETRY:  1.0     2.0      1.0     2.0
+ARRHENIUS:      1.0e5   1.0e5
+HEAT:           1.0e5   10.0     1.0     2.0
+TEMP LIMIT:     U       1000.0
+
+REACTION:       COMP3 + NONE -> COMP4 + NONE
+STOICHIOMETRY:  1.0     0.0     1.0     0.0
+ARRHENIUS:      1.0e10  2.0e5
+HEAT:           -1.0e6  0.0     0.0     0.0
+TEMP LIMIT:     L       500.0
