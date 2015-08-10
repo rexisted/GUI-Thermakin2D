@@ -55,6 +55,28 @@ if cond_fig_limit == 0 %If its not opened
         'Title','Integration Parameter',...
         'TitlePosition','centertop');
     
+    cond_intepara_elmtsz_txt
+    
+    cond_intepara_elmtsz_edit
+    
+    cond_intepara_timestp_txt
+    
+    cond_intepara_timestp_edit
+    
+    cond_intepara_dur_txt
+    
+    cond_intepara_dur_edit
+    
+    cond_intepara_outfreq_txt
+    
+    cond_intepara_elmt_txt
+    
+    cond_intepara_elmt_edit
+    
+    cond_intepara_timestps_txt
+    
+    cond_intepara_timestps_edit
+    
     cond_objbond_pnl = uipanel(...
         'BorderType','etchedin',...
         'FontSize',10,...
@@ -64,6 +86,102 @@ if cond_fig_limit == 0 %If its not opened
         'Tag','cond_objbond_pnl',...
         'Title','Object Boundaries',...
     'TitlePosition','centertop');
+
+    cond_objbond_topbond_txt
+    
+    cond_objbond_bttmbond_txt
+    
+    cond_topbond_expnl
+    
+    cond_topbond_inpnl
+    
+    cond_topbond_masstrans_txt
+    
+    cond_topbond_masstrans_edit1
+    
+    cond_topbond_masstrans_edit2
+    
+    cond_topbond_masstrans_edit3
+    
+    cond_topbond_masstrans_edit4
+    
+    cond_topbond_masstrans_edit5
+    
+    cond_topbond_addmt_pshbttn
+    
+    cond_topbond_remmt_pshbttn
+    
+    cond_topbond_outtemptimeprog_txt
+    
+    cond_topbond_outtemptimeprog_edit1
+    
+    cond_topbond_outtemptimeprog_edit2
+    
+    cond_topbond_convcoeff1_txt
+    
+    cond_topbond_convcoeff1_edit
+    
+    cond_topbond_exrad_txt
+    
+    cond_topbond_exrad_list
+    
+    cond_topbond_timeprog1_txt
+    
+    cond_topbond_timeprog1_edit1
+    
+    cond_topbond_timeprog1_edit2
+    
+    cond_topbond_timeprog1_edit3
+    
+    cond_topbond_timeprog2_txt
+    
+    cond_topbond_timeprog2_edit1
+    
+    cond_topbond_timeprog2_edit2
+    
+    cond_topbond_timeprog2_edit3
+    
+    cond_topbond_repeat_txt
+    
+    cond_topbond_repeat_list
+    
+    cond_topbond_absorpmode_txt
+    
+    cond_topbond_absorpmode_list
+    
+    cond_topbond_flame_txt
+    
+    cond_topbond_flame_list
+    
+    cond_topbond_ignmassflux_txt
+    
+    cond_topbond_ignmassflux_list
+    
+    cond_topbond_ignmassflux_edit
+    
+    cond_topbond_addimf_pshbttn
+    
+    cond_topbond_remimf_pshbttn
+    
+    cond_topbond_outtemp_txt
+    
+    cond_topbond_outtemp_edit
+    
+    cond_topbond_convcoeff2_txt
+    
+    cond_topbond_convcoeff2_edit
+    
+    cond_topbond_rad_txt
+    
+    cond_topbond_rad_edit
+    
+    cond_topbond_rad_txt
+    
+    cond_topbond_scroll_slider
+    
+    cond_bttmbond_expnl
+    
+    cond_bttmbond_inpnl
     
     cond_objstrct_pshbttn = uicontrol(...
         'Position',[50 125 200 50],...
@@ -175,7 +293,7 @@ if comp_fig_limit == 0 %If its not opened
 %         'Tag','comp_cmp_list',...
 %         'FontWeight','bold'...
 %         'TooltipString','Default');
-    
+
     %Creates the create button to create the components file
     comp_crte_pshbttn = uicontrol(...
         'Position',[140 10 160 30],...
@@ -212,7 +330,7 @@ if comp_fig_limit == 0 %If its not opened
         'Tag','comp_mixprop_sswel_txt');
     comp_mixprop_sswel_edit = uicontrol(...
         'Parent',comp_mixprop_pnl,...
-        'Position',[90 118 53 22],...
+        'Position',[105 118 53 22],...
         'Style','edit',...
         'String','0',...
         'Tag','comp_mixprop_sswel_edit',...
@@ -228,7 +346,7 @@ if comp_fig_limit == 0 %If its not opened
         'Tag','comp_mixprop_lswel_txt');
     comp_mixprop_lswel_edit = uicontrol(...
         'Parent',comp_mixprop_pnl,...
-        'Position',[90 93 53 22],...
+        'Position',[105 93 53 22],...
         'Style','edit',...
         'String','0',...
         'Tag','comp_mixprop_lswel_edit',...
