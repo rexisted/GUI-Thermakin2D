@@ -1,0 +1,10 @@
+This is a text input describing properties of mixtures of components. The Mixrules::load function expects this format.
+
+MIXTURES
+S SWELLING:           0.0
+L SWELLING:           1.0
+G SWELLING LIMIT:     1.0e-5
+PARALL CONDUCTIVITY:  0.5
+PARALL TRANSPORT:     0.5
+
+Solid and liquid swelling coefficients and parallel conductivity and transport factors are expected to be between 0 and 1 (including 0 and 1). Gas swelling limit coefficient may assume any positive (above zero) value.

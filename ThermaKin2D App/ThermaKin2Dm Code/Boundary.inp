@@ -1,0 +1,26 @@
+This is a text input describing boundary conditions. The Bound::load function expects this format.
+
+MASS TRANSPORT: YES
+COMP0  EXP  1.0e17  3.0e5
+COMP2  LIN  0.1     0.3
+COMP3  LIN  0.02    0.0
+
+OUTSIDE INIT TEMP:  300.0
+OUTSIDE HEAT RATE:  0.17  0.002  0.005  -0.43
+CONVECTION COEFF:  15.0
+
+EXTERNAL RADIATION: YES
+TIME PROG1:  20000.0  100.0   300.0
+TIME PROG2:  50000.0  -100.0  300.0
+REPEAT: YES
+ABSORPTION MODE: MAX
+
+FLAME: YES
+IGNITION MASS FLUXES:
+COMP0  0.01
+COMP2  0.03
+OUTSIDE TEMP:  1400.0
+CONVECTION COEFF:  20.0
+RADIATION:  10000.0
+
+Time parameters must always be non-negative. Temperature parameters must produce positive temperature values. Ignition mass fluxes must not be equal to zero. Absorption mode should be MAX or RAND.
