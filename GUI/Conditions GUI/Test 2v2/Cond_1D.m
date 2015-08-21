@@ -476,8 +476,6 @@ INT_PARA{9,1} = sprintf('TIME STEPS:  %s',time2);
 
 %% CREATE CND FILE
 
-% O = obj_bound{:,1};
-% O(all(O == ' ', 2),:) = [];
 F = char(obj_struct{:,1},obj_bound{:,1},INT_PARA{:,1});
 
 [FileName,PathName] = uiputfile('*.cnd','Save as');
@@ -485,7 +483,12 @@ if isequal(FileName,0) %if no file is chosen or canceled then display Cancel
     disp('User selected Cancel')
 else
     dlmwrite(FileName,F,'delimiter', '', 'newline', 'pc');
+    disp(pwd);
+    disp(PathName);
+    dir_sz = size(PathName,2);
+    if ~strncmp(pwd,PathName,dir_sz-1)
     movefile(FileName,PathName,'f');
+    end
 end
 
 %% Integration Parameters======================================================================
