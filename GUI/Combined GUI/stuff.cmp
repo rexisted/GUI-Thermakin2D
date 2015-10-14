@@ -1,0 +1,241 @@
+COMPONENT:       PEI                                            
+STATE:           S                                              
+DENSITY:         1285  0  0  0                                  
+HEAT CAPACITY:   -35.71  4.11  0  0                             
+CONDUCTIVITY:    0.4  -0.0004  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.36                            
+COMPONENT:       PEI_melt                                       
+STATE:           S                                              
+DENSITY:         1285  0  0  0                                  
+HEAT CAPACITY:   1877.15  0.57487  0  0                         
+CONDUCTIVITY:    0.32  -0.00033  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  100                             
+COMPONENT:       PEI_1                                          
+STATE:           S                                              
+DENSITY:         80  0  0  0                                    
+HEAT CAPACITY:   1585  0.308  0  0                              
+CONDUCTIVITY:    0.45  0.00019  0  0                            
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  100                             
+COMPONENT:       PEI_ch                                         
+STATE:           S                                              
+DENSITY:         80  0  0  0                                    
+HEAT CAPACITY:   1300  0.0408  0  0                             
+CONDUCTIVITY:    0.5  -3.4e-5  2.0e-10  3                       
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.86  100                             
+COMPONENT:       PEI_g1                                         
+STATE:           G                                              
+DENSITY:         1285  0  0  0                                  
+HEAT CAPACITY:   1800  0  0  0                                  
+CONDUCTIVITY:    0.4  -0.0004  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.36                            
+COMPONENT:       PEI_g2                                         
+STATE:           G                                              
+DENSITY:         1285  0  0  0                                  
+HEAT CAPACITY:   1800  0  0  0                                  
+CONDUCTIVITY:    0.4  -0.0004  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.36                            
+COMPONENT:       PET                                            
+STATE:           S                                              
+DENSITY:         1385  0  0  0                                  
+HEAT CAPACITY:   -268.62  4.64  0  0                            
+CONDUCTIVITY:    0.35  -0.00048  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.4                             
+COMPONENT:       PET_melt                                       
+STATE:           S                                              
+DENSITY:         1385  0  0  0                                  
+HEAT CAPACITY:   2050.013  -0.208288  0  0                      
+CONDUCTIVITY:    0.325  -0.00002  0  0                          
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.4                             
+COMPONENT:       PET_inter                                      
+STATE:           S                                              
+DENSITY:         730  0  0  0                                   
+HEAT CAPACITY:   1435  -0.048  0  0                             
+CONDUCTIVITY:    0.45  0.0002  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.4                             
+COMPONENT:       PET_ch                                         
+STATE:           S                                              
+DENSITY:         80  0  0  0                                    
+HEAT CAPACITY:   820  0.112  0  0                               
+CONDUCTIVITY:    0.45  3.8e-5  5.0e-10  3                       
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.86  100                             
+COMPONENT:       PET_g1                                         
+STATE:           G                                              
+DENSITY:         1385  0  0  0                                  
+HEAT CAPACITY:   1800  0  0  0                                  
+CONDUCTIVITY:    0.35  -0.00048  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.4                             
+COMPONENT:       PET_g2                                         
+STATE:           G                                              
+DENSITY:         1385  0  0  0                                  
+HEAT CAPACITY:   1800  0  0  0                                  
+CONDUCTIVITY:    0.35  -0.00048  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.4                             
+COMPONENT:       POM                                            
+STATE:           S                                              
+DENSITY:         1424  0  0  0                                  
+HEAT CAPACITY:   -1861.4  9.98  0  0                            
+CONDUCTIVITY:    0.25  0.000016  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  2.14                            
+COMPONENT:       POM_melt                                       
+STATE:           S                                              
+DENSITY:         1424  0  0  0                                  
+HEAT CAPACITY:   1649  1.15  0  0                               
+CONDUCTIVITY:    0.21  0.000008  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  2.14                            
+COMPONENT:       POM_inter                                      
+STATE:           S                                              
+DENSITY:         1424  0  0  0                                  
+HEAT CAPACITY:   1649 1.15  0  0                                
+CONDUCTIVITY:    0.19  -0.00006  0  0                           
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  2.14                            
+COMPONENT:       POM_ch                                         
+STATE:           S                                              
+DENSITY:         265  0  0  0                                   
+HEAT CAPACITY:   1250  0  0  0                                  
+CONDUCTIVITY:    0.5  0  0  0                                   
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  10000                           
+COMPONENT:       POM_g1                                         
+STATE:           G                                              
+DENSITY:         1424  0  0  0                                  
+HEAT CAPACITY:   1880  0  0  0                                  
+CONDUCTIVITY:    0.25  0  0  0                                  
+TRANSPORT:       1e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  1  2.14                               
+COMPONENT:       POM_g2                                         
+STATE:           G                                              
+DENSITY:         1424  0  0  0                                  
+HEAT CAPACITY:   1880  0  0  0                                  
+CONDUCTIVITY:    0.25  0  0  0                                  
+TRANSPORT:       1e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  1  2.14                               
+COMPONENT:       PMMA                                           
+STATE:           S                                              
+DENSITY:         1155  0  0  0                                  
+HEAT CAPACITY:   601.4  3.63  0  0                              
+CONDUCTIVITY:    0.45 -3.8e-4  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.94                            
+COMPONENT:       PMMA_black                                     
+STATE:           S                                              
+DENSITY:         1155  0  0  0                                  
+HEAT CAPACITY:   601.4  3.63  0  0                              
+CONDUCTIVITY:    0.45 -3.8e-4  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  10000                           
+COMPONENT:       PMMA_glass                                     
+STATE:           S                                              
+DENSITY:         1155  0  0  0                                  
+HEAT CAPACITY:   601.4  3.63  0  0                              
+CONDUCTIVITY:    0.27 -2.4e-4  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.94                            
+COMPONENT:       PMMA_glass_black                               
+STATE:           S                                              
+DENSITY:         1155  0  0  0                                  
+HEAT CAPACITY:   601.4  3.63  0  0                              
+CONDUCTIVITY:    0.27 -2.4e-4  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  10000                           
+COMPONENT:       PMMA_ch                                        
+STATE:           S                                              
+DENSITY:         1155  0  0  0                                  
+HEAT CAPACITY:   601.4  3.63  0  0                              
+CONDUCTIVITY:    0.27 -2.4e-4  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.94                            
+COMPONENT:       PMMA_g                                         
+STATE:           G                                              
+DENSITY:         1155  0  0  0                                  
+HEAT CAPACITY:   1800  0  0  0                                  
+CONDUCTIVITY:    0.27 -2.4e-4  0  0                             
+TRANSPORT:       2e-5  0  0  0                                  
+EMISSIVITY & ABSORPTION:  0.95  1.94                            
+                                                                
+MIXTURES                                                        
+S SWELLING:           0                                         
+L SWELLING:           0                                         
+G SWELLING LIMIT:     1e-30                                     
+PARALL CONDUCTIVITY:  0.5                                       
+PARALL TRANSPORT:     0.5                                       
+                                                                
+REACTION:       PEI + NOCOMP -> PEI_melt + PEI_g1               
+STOICHIOMETRY:  1    0         1    0                           
+ARRHENIUS:      1  0                                            
+HEAT:           0  0  0  0                                      
+TEMP LIMIT:     L  496                                          
+REACTION:       PEI_melt + NOCOMP -> PEI_1 + PEI_g1             
+STOICHIOMETRY:  1    0         0.65    0.35                     
+ARRHENIUS:      7.655e27  465000                                
+HEAT:           80000  0  0  0                                  
+TEMP LIMIT:     L  300                                          
+REACTION:       PEI_1 + NOCOMP -> PEI_ch + PEI_g2               
+STOICHIOMETRY:  1    0         0.77    0.23                     
+ARRHENIUS:      6.502e02  87500                                 
+HEAT:           5000  0  0  0                                   
+TEMP LIMIT:     L  300                                          
+REACTION:       PET + NOCOMP -> PET_melt + PET_g1               
+STOICHIOMETRY:  1    0         1    0                           
+ARRHENIUS:      1.5E36  380000                                  
+HEAT:           -30310  0  0  0                                 
+TEMP LIMIT:     L  300                                          
+REACTION:       PET_melt + NOCOMP -> PET_inter + PET_g1         
+STOICHIOMETRY:  1    0         0.18    0.82                     
+ARRHENIUS:      1.6e15  235000                                  
+HEAT:           -220000  0  0  0                                
+TEMP LIMIT:     L  300                                          
+REACTION:       PET_inter + NOCOMP -> PET_ch + PET_g2           
+STOICHIOMETRY:  1    0         0.72    0.28                     
+ARRHENIUS:      3.53e4  96000                                   
+HEAT:           -250000  0  0  0                                
+TEMP LIMIT:     L  300                                          
+REACTION:       POM + NOCOMP -> POM_melt + POM_g1               
+STOICHIOMETRY:  1    0         1    0                           
+ARRHENIUS:      2.69e42  382000                                 
+HEAT:           -192100  0  0  0                                
+TEMP LIMIT:     L  300                                          
+REACTION:       POM_melt + NOCOMP -> POM_inter + POM_g1         
+STOICHIOMETRY:  1    0         0.4    0.6                       
+ARRHENIUS:      3.835e14  200000                                
+HEAT:           -1192000  0  0  0                               
+TEMP LIMIT:     L  300                                          
+REACTION:       POM_inter + NOCOMP -> POM_ch + POM_g2           
+STOICHIOMETRY:  1    0         0    1                           
+ARRHENIUS:       4.758378e44  590000                            
+HEAT:           -1352000  0  0  0                               
+TEMP LIMIT:     L  300                                          
+REACTION:       PMMA + NOCOMP -> PMMA_glass + NOCOMP            
+STOICHIOMETRY:  1    0         1    0                           
+ARRHENIUS:      1  0                                            
+HEAT:           0  0  0  0                                      
+TEMP LIMIT:     L  378                                          
+REACTION:       PMMA_black + NOCOMP -> PMMA_glass_black + NOCOMP
+STOICHIOMETRY:  1    0         1    0                           
+ARRHENIUS:      1  0                                            
+HEAT:           0  0  0  0                                      
+TEMP LIMIT:     L  378                                          
+REACTION:       PMMA_glass + NOCOMP -> PMMA_ch + PMMA_g         
+STOICHIOMETRY:  1    0         0.015    0.985                   
+ARRHENIUS:      8.6e12  188100                                  
+HEAT:           -846000  0  0  0                                
+TEMP LIMIT:     L  300                                          
+REACTION:       PMMA_glass_black + NOCOMP -> PMMA_ch + PMMA_g   
+STOICHIOMETRY:  1    0         0.015    0.985                   
+ARRHENIUS:      8.6e12  188100                                  
+HEAT:           -846000  0  0  0                                
+TEMP LIMIT:     L  300                                          

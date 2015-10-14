@@ -316,7 +316,7 @@ if te == 1;
     obj_bound{x+8,1} = sprintf('REPEAT:  %s',top_repeat);
     obj_bound{x+9,1} = sprintf('ABSORPTION MODE:  %s',top_absorpmode);
 elseif te == 2;
-    obj_bound{x+6,1} = '';c
+    obj_bound{x+6,1} = '';
     obj_bound{x+7,1} = '';
     obj_bound{x+8,1} = '';
     obj_bound{x+9,1} = '';
@@ -891,47 +891,6 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 set(hObject,'String',{'Yes','No'});
 
-
-%% TOP Boundaries ===========================================================================
-
-%% List Box ------------try to minimize-------------------------------------------------------------------------------------------
-function top_masstrans_3_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-set(hObject,'String',{'EXP','LIN'});
-function top_absorpmode_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-set(hObject,'String',{'RAND','MAX'});
-function top_extrad_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-set(hObject,'String',{'Yes','No'});
-function top_masstrans_1_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-set(hObject,'String',{'Yes','No'});
-function top_flame_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-set(hObject,'String',{'Yes','No'});
-function top_repeat_CreateFcn(hObject, eventdata, handles)
-
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-set(hObject,'String',{'Yes','No'});
-
 %--------YES/NO Visibility-------------------------------------
 function top_extrad_Callback(hObject, eventdata, handles)
 uicontrol_4 = str2double(get(handles.CounterE,'String'));
@@ -1187,6 +1146,46 @@ elseif get(handles.top_flame,'Value') == 2 && str2double(get(handles.Counter5,'S
     set(handles.Counter5,'String','1');
     
 end
+
+%% TOP Boundaries ===========================================================================
+
+%% List Box ------------try to minimize-------------------------------------------------------------------------------------------
+function top_masstrans_3_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+set(hObject,'String',{'EXP','LIN'});
+function top_absorpmode_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+set(hObject,'String',{'RAND','MAX'});
+function top_extrad_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+set(hObject,'String',{'Yes','No'});
+function top_masstrans_1_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+set(hObject,'String',{'Yes','No'});
+function top_flame_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+set(hObject,'String',{'Yes','No'});
+function top_repeat_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+set(hObject,'String',{'Yes','No'});
 
 %% TEXT INPUT ------------------------------------------------------------------------------------------
 function top_convcoeff_1_Callback(hObject, eventdata, handles)
@@ -1934,6 +1933,17 @@ set(handles.uipanelt,'Units','pixels');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 %% =================================OBJECT STRUCTURE===============================================================================
 
 function OB_structpush_Callback(hObject, eventdata, handles)
@@ -1973,6 +1983,7 @@ createos = uicontrol('Parent',L,'Style','pushbutton','String','Create Object',..
     'Units','pixels','Position',[55 5 150 30],'Tag','create_os',...
     'FontSize',10,'Visible','Off','Callback',@layer_create_Callback);
 
+global vscrollos
 %Create scrollbar for moving content in figure
 vscrollos = uicontrol('Parent',F,'Style','slider','Callback',@v_scrollos_Callback,...
     'Units','pixels','Position',[255 0 15 170],'Tag','v_scrollos','Visible','On');
@@ -2339,7 +2350,7 @@ L.Units = 'pixels';
 
 function v_scrollos_Callback(hObject, eventdata, handles)
 L = findobj('Tag','Lpanel'); %Change height and position coreesponding to figure
-vscrollos = findobj('Tag','v_scrollos');
+global vscrollos
 
 L.Units = 'normalized';
 vscrollos.Max = L.Position(4) -.85;
@@ -2349,9 +2360,12 @@ gpos(1,2) = -sval;
 L.Position = gpos;
 L.Units = 'pixels';
 
-% --- Executes when user attempts to close main window
+
+% --- Executes when user attempts to close figure1.
 function figure1_CloseRequestFcn(hObject, eventdata, handles)
+% hObject    handle to figure1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: delete(hObject) closes the figure
 delete(hObject);
-% add if statement so that main window doesn't close without closing other
-% minor windows
-delete(findobj('Tag','OBStructFig'));
