@@ -1,0 +1,235 @@
+clc
+clear
+%Input-------------------------------
+FILE_NAME='17.5x5burnerAug28_2014y25CEA180scool.txt';
+tic
+file_name = '17.5x5burnerAug28_2014y25CEA180scool_full_new.txt';
+fid = fopen(file_name,'rt');
+C = textscan(fid,'%s','delimiter','\t');
+fclose(fid);
+ file_strings = C{1}(~cellfun('isempty',C{1}(:,1)),:);%function to condense cell array
+DISP_TIMESTEP=290;
+DISP_HEAT_FLX_MIN=-5;
+DISP_HEAT_FLX_MAX=40;
+% FILTER_TARGET='PMMA_g';
+%------------------------   ------------
+numcomp=sscanf(file_strings{4},'%*s %*s %*s %u');
+% disp(numcomp);
+file_strings_sz=size(file_strings);%size of cell array
+file_strings_x=0;%cell counter 
+time_iy = 0;%time index counter
+start_time = 1;%You chose the start time for graphs to be made
+end_time = 300;%Chosen end time 
+%Index code from 1 to 5
+%Options to turn on for simple single plots 
+Temp_profile = 'on';%1
+Conc_profile = 'off';%2
+Heat_flux = 'off';%3
+MLR = 'off';%4
+Tempat_position = 'off';%5
+smooth_shading = 200;
+colormap(jet);%sets the colormap colors
+%end of selections
+select_position = 'on';%option to select specific location to plot temperature over time 
+select_position_x =0.011875;
+select_position_y =0.17375;
+if strcmp(select_position, 'on')%select_position_y <= 0.175 && select_position_y >= 0 
+    Tempat_position = 'on';
+end 
+%End of Options
+%godNum from 1 to 8
+godNum = 6;%Godnumber chooses the index of the component that will be plotted as a composition profile
+%Beginning of scanning data a marker will notify end of scanning data
+while file_strings_x < file_strings_sz(1,1)
+    file_strings_x = file_strings_x+1;
+    if strcmp(file_strings{file_strings_x}, 'Time [s] =')
+        count_height = 1;%0
+        time_iy = time_iy+1;
+        time_hold(time_iy,1) = str2double(file_strings{file_strings_x+1});
+    end 
+   if strcmp(file_strings{file_strings_x}, 'MASS FLOW OUT [kg/s]:') && time_iy == 1
+        disp('good');
+        m_count= 1;
+        file_strings_x = file_strings_x+1;
+        while m_count < numcomp
+            material_hold{m_count,1} = file_strings{file_strings_x};
+            file_strings_x = file_strings_x+1;
+            m_count = m_count+1;
+        end 
+    end 
+    if strcmp(file_strings{file_strings_x}, 'Total length [m]  =')
+        file_strings_x = file_strings_x+1;
+        total_length = str2double(file_strings{file_strings_x});
+        n_counter = 0;
+        count_height = count_height+1;
+        while n_counter < count2
+            n_counter = n_counter+1;
+            xx(count_height, n_counter, time_iy) = xx(count_height-1,n_counter, time_iy);
+            yy(count_height, n_counter,time_iy) = str2double(file_strings{file_strings_x});
+            temp(count_height, n_counter,time_iy) = temp(count_height-1,n_counter,time_iy);%0
+            hflux(count_height, time_iy) = hflux(count_height-1,time_iy)/1000;
+            conc(count_height, n_counter,time_iy)= conc(count_height-1,n_counter,time_iy);%0
+        end 
+    end 
+    if strcmp(file_strings{file_strings_x}, 'Total mass [kg/m] =')
+        mass(time_iy,1) = str2double(file_strings{file_strings_x+1});
+    end 
+    if strcmp(file_strings{file_strings_x}, 'FROM BOTTOM [m] =')
+        count_height = count_height+1;
+        file_strings_x = file_strings_x+1;
+        val = str2double(file_strings{file_strings_x});
+        val2 = str2double(file_strings{file_strings_x+2});
+        hflux(count_height, time_iy) = val2/1000;
+        while ~strcmp(file_strings{file_strings_x}, 'FROM BACK [m]') 
+            file_strings_x = file_strings_x+1;
+        end 
+%         count1_back = count1_back+1;
+        count2 = 0;
+        file_strings_x = file_strings_x+11;
+        count2 = count2+1;
+        
+        xx(count_height, count2, time_iy) = str2double(file_strings{file_strings_x});
+
+        yy(count_height, count2,time_iy) = val;
+        temp(count_height,count2, time_iy) = str2double(file_strings{file_strings_x+1});
+        conc(count_height, count2, time_iy) = str2double(file_strings{file_strings_x+1+godNum});
+        concIndex(count_height, count2, time_iy) = file_strings_x+1+godNum; 
+        while ~strcmp(file_strings{file_strings_x+10}, '-----------------------------')
+            count2 = count2+1;
+            file_strings_x = file_strings_x+10;
+            xx(count_height, count2, time_iy) = str2double(file_strings{file_strings_x});
+            xx_index(count_height, count2,time_iy) = file_strings_x;
+            yy(count_height, count2, time_iy) = val;
+            temp(count_height,count2, time_iy) = str2double(file_strings{file_strings_x+1});
+            conc(count_height, count2, time_iy) = str2double(file_strings{file_strings_x+1+godNum});
+            concIndex(count_height, count2, time_iy) = file_strings_x+1+godNum;
+        end
+        count2 = count2+1;
+        xx(count_height, count2,time_iy) = 0;
+        yy(count_height, count2,time_iy) = yy(count_height, count2-1,time_iy);
+        temp(count_height, count2, time_iy) = 0;
+        conc(count_height, count2, time_iy)= 0;
+    end
+    
+end
+change_boundary_y = 1;
+while change_boundary_y < time_iy
+    y_d = 1;
+    while y_d < size(xx(1,:,1),2)
+        xx(1,y_d,change_boundary_y) = xx(2,y_d,change_boundary_y);
+        yy(1,y_d,change_boundary_y) = 0;
+        temp(1,y_d,change_boundary_y) = temp(2,y_d,change_boundary_y);
+        conc(1, y_d,change_boundary_y) = conc(2,y_d,change_boundary_y);
+        y_d = y_d+1;
+    end 
+    change_boundary_y = change_boundary_y+1;
+end 
+material = material_hold{godNum,1};
+count_time = 1;
+reform_count1 = 1;
+while count_time < 600
+    max_conc_val(count_time,1)= max(max(conc(:,:,count_time)));
+    count_time= count_time+1;
+end 
+real_max_conc = max(max_conc_val(:,1));
+while reform_count1 < size(time_hold(:,1))
+    int1 = 1;
+    while int1 < size(conc(:,1,1))
+        while int2 < size(conc(int1,:,reform_count1))
+            conc(int1,int2,reform_count1) = (conc(int1,int2,reform_count1)/real_max_conc)*100;
+        end 
+        int1 = int1+1;
+    end
+    reform_count1 = reform_count1+1;
+end 
+%end of scanning data
+warning = 1;%marker to help plot temperature at specified location
+ tmp = abs(time_hold(:,1)-start_time);
+    [idxA idxA] = min(tmp);
+    tmp = abs(time_hold(:,1)-end_time);
+    [idxB idxB] = min(tmp);
+    width = (count2*.016);%sets up the graph
+    height = count_height*.011643;%sets up the graph
+    % set(gca,'Position',[0.1145 0.11 width height]); ignore this 
+    tmp = abs(time_hold(:,1)-start_time);
+    [idxA idxA] = min(tmp);
+    % disp(start_time);
+    tmp = abs(time_hold(:,1)-end_time);
+    [idxB idxB] = min(tmp);
+% End of finding indexes
+ x = 0;
+ while x < 600
+    x = x+1;
+    mlr(x,1) = ((mass(x,1)-mass(x+1,1))/2)*1000;
+ end
+ mlr(x+1,1) = mlr(x,1)*1000;
+% End of determining mass loss rates 
+while idxA < idxB
+    if strcmp(Temp_profile, 'on')
+        subplot(2,4,[1 5]);
+        contourf(xx(:,:,time_hold(idxA,1)),yy(:,:,time_hold(idxA,1)),temp(:,:,time_hold(idxA,1)),100,'EdgeColor','none');%contour plot
+        %of the temperature profile
+        %set(gca,'Position',[0.1145 0.11 width height]);
+        title('Temperature Profile');
+        xlabel('From Back [m]'); % x-axis label
+        ylabel('From Bottom [m]'); % y-axis label
+        caxis([200 700]);
+        colorbar;
+    end
+    if strcmp(Conc_profile, 'on')
+        subplot(2,4,[2 6]);
+        contourf(xx(:,:,time_hold(idxA,1)),yy(:,:,time_hold(idxA,1)),conc(:,:,time_hold(idxA,1)),smooth_shading,'EdgeColor','none');
+        %shading flat;   
+        title('Concentration Profile');
+        xlabel('From Back [m]'); % x-axis label
+        ylabel('From Bottom [m]'); % y-axis label
+        caxis([0 100]);
+        colorbar;
+    end
+    if strcmp(Heat_flux, 'on')
+        subplot(2,4,[3 7]);
+        h = area(yy(:,1,1),hflux(:,time_hold(idxA,1)));
+        xlim([0 0.2]);
+        ylim([-15 35]);
+        title('Heat Flux over time');
+        xlabel('Height'); % x-axis label
+        ylabel('Heat Flux In W/m^2 * 1000'); % y-axis label
+        h.FaceColor = 'red';
+        view(90,270);
+    end 
+    if strcmp(MLR, 'on')
+        subplot(2,4, 4);
+        plot(time_hold(:,1), mlr(:,1));%plots mass loss rate
+        title('Mass Loss Rate Profile');
+        xlim([0 700]);
+        %0.001
+        ylim([0 1]);
+        xlabel('Time [s]'); % x-axis label
+        ylabel('Mass Loss Rate [kg/s^2] * 10^-3'); % y-axis label
+        %          print('hflux','-dpng');
+        %           end 
+    end 
+    subplot(2,4,8);
+    if ~(select_position_x <= 0.012 && select_position_x > 0 && select_position_y <= 0.175 && select_position_y >= 0)
+    disp('Sorry, the positions you selected do not exist');  
+    end 
+    if(select_position_x <= 0.012 && select_position_x > 0 && select_position_y <= 0.175 && select_position_y >= 0)
+        %specified time position  
+        tmp = abs(xx(1,:,1)-select_position_x);
+        [idxA idxA] = min(tmp);
+        tmp = abs(yy(:,1,1)-select_position_y);
+        [idxB idxB] = min(tmp);
+        %from start to end 
+        
+        temperature(:,1) = temp(idxB,idxA,:);
+        plot(time_hold(:,1),temperature(:,1));
+        xlim([0 600]);
+        ylim([250 700]);
+        title('Temperature over time at specific location');
+        xlabel('Time [s]'); % x-axis label
+        ylabel('Temperature [K]'); % y-axis label
+    end 
+        pause(0.0001);
+        idxA= idxA+1;
+end
+toc
