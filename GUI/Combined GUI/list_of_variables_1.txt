@@ -1,0 +1,32 @@
+cnd_custom_fig
+
+cnd_intpar_pnl
+cnd_intpar_elmtsz_txt
+cnd_intpar_elmtsz_edt
+cnd_intpar_timestp_txt
+cnd_intpar_timestp_edt
+cnd_intpar_dur_txt
+cnd_intpar_dur_edt
+cnd_intpar_outfrq_txt
+cnd_intpar_elmt_txt
+cnd_intpar_elmt_edt
+cnd_intpar_timestps_txt
+cnd_intpar_timestps_edt
+cnd_objbnd_pnl
+cnd_objbnd_tpbnd_txt
+cnd_objbnd_bttmbnd_txt
+cmp_filename
+
+tp_mt_val
+tp_imf_val
+bb_mt_val
+bb_imf_val
+objstrctVal
+
+
+pnl height = 410
+pnl width = 275
+
+txt height= 15
+mn, edt height = 22
+add & rem pshbttn height= 24
