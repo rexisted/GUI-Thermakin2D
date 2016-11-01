@@ -10,5 +10,3 @@ Conditions GUI
 
 Output GUI
 
-
-HI MOM!
